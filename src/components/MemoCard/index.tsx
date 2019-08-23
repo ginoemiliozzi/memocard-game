@@ -24,10 +24,10 @@ const useStyles = makeStyles({
 });
 
 interface MemoryCardProps extends MemoryCard {
-  onCardSelected: () => void;
+  onCardSelect: () => void;
 }
 function MemoCard({
-  onCardSelected,
+  onCardSelect,
   selected,
   discovered,
   imageUrl
@@ -41,7 +41,7 @@ function MemoCard({
     config: { mass: 5, tension: 500, friction: 80 }
   });
   return (
-    <Card onClick={onCardSelected}>
+    <Card onClick={onCardSelect}>
       <a.div
         className={`${classes.card} ${classes.front}`}
         style={{
