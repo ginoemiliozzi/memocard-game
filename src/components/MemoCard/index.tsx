@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     willChange: "transform, opacity",
     backgroundSize: "cover"
   },
-  back: { backgroundImage: (imageUrl: string) => `url(${imageUrl})` },
   front: {
     border: "1px solid black",
     backgroundImage: `url(
@@ -51,7 +50,7 @@ function MemoCard({
         }}
       />
       <a.div
-        className={`${classes.card} ${classes.back}`}
+        className={classes.card}
         style={{
           backgroundImage: `url(${imageUrl})`,
           opacity,
