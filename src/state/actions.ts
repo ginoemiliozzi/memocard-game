@@ -9,7 +9,9 @@ export enum ActionsTypes {
 
 export interface GameState {
   cards: MemoryCard[];
+  totalMovements: number;
   movements: number;
+  wonGame: boolean;
 }
 export interface MemoryCard {
   id: string;

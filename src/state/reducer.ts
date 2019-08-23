@@ -4,15 +4,21 @@ export const reducer = (prevState: GameState, action: Action) => {
   switch (action.type) {
     case ActionsTypes.CARD_SELECTED:
       const { cards, movements } = prevState;
-      if (movements === 0) return prevState; //what if won game?
+      if (movements === 0) return prevState;
       const selectedCards = cards.filter(c => c.selected);
       const clickedCard = action.payload;
+      if (
+        selectedCards.some(c => c.id === clickedCard.id) ||
+        cards.filter(c => c.discovered).some(c => c.id === clickedCard.id)
+      )
+        return prevState;
       if (selectedCards.length === 2) {
         if (selectedCards[0].type === selectedCards[1].type) {
           const newCards = discoverSelectedPair(cards);
           if (wonGame(newCards, clickedCard)) {
             return {
               ...prevState,
+              wonGame: true,
               movements: movements - 1,
               cards: newCards.map(c => {
                 return { ...c, selected: false, discovered: true };
