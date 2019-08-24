@@ -7,11 +7,10 @@ import {
   LinearProgress,
   Typography,
   Button,
-  Paper,
   Box
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import initialState, { availableCards } from "../../state/initialState";
+import initialState from "../../state/initialState";
 import Board from "../Board";
 
 const useStyles = makeStyles({
