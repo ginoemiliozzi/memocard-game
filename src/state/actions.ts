@@ -1,10 +1,11 @@
 export interface Action {
   type: ActionsTypes;
-  payload: any;
+  payload?: any;
 }
 
 export enum ActionsTypes {
-  CARD_SELECTED
+  CARD_SELECTED,
+  START_GAME
 }
 
 export interface GameState {

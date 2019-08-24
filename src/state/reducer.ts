@@ -1,4 +1,6 @@
 import { GameState, Action, ActionsTypes, MemoryCard } from "./actions";
+import { availableCards, totalMovements } from "./initialState";
+import _ from "lodash";
 
 export const reducer = (prevState: GameState, action: Action) => {
   switch (action.type) {
@@ -45,6 +47,14 @@ export const reducer = (prevState: GameState, action: Action) => {
           cards: selectCard(cards, clickedCard.id)
         };
       }
+    case ActionsTypes.START_GAME:
+      const shuffledCards = _.shuffle(availableCards);
+      return {
+        ...prevState,
+        wonGame: false,
+        movements: totalMovements,
+        cards: shuffledCards
+      };
     default:
       return prevState;
   }
