@@ -1,4 +1,4 @@
-const totalMovements = 20;
+export const totalMovements = 60;
 export const availableCards = [
   {
     id: "1",
@@ -129,7 +129,7 @@ export const availableCards = [
 ];
 
 const initialState = {
-  cards: availableCards,
+  cards: [],
   totalMovements: totalMovements,
   movements: totalMovements,
   wonGame: false
