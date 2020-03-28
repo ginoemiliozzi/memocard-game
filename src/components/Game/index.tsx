@@ -4,14 +4,14 @@ import { ActionsTypes, MemoryCard } from "../../state/actions";
 import {
   Container,
   Grid,
-  LinearProgress,
   Typography,
   Button,
-  Box
+  Box,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import initialState from "../../state/initialState";
 import Board from "../Board";
+import Welcome from "../Welcome/Welcome";
 
 const useStyles = makeStyles({
   movementsInfo: {
@@ -19,19 +19,19 @@ const useStyles = makeStyles({
     marginTop: 20,
     marginBottom: 20,
     backgroundColor: "lightcoral",
-    borderRadius: 5
+    borderRadius: 5,
   },
   gameInfo: {
     textAlign: "center",
     marginTop: 5,
     marginBottom: 20,
     borderRadius: 5,
-    backgroundColor: "#B7EBD9"
+    backgroundColor: "#B7EBD9",
   },
   startGame: {
     textAlign: "center",
-    padding: 20
-  }
+    padding: 20,
+  },
 });
 
 export default function Game() {
@@ -50,42 +50,33 @@ export default function Game() {
     <Container>
       <Grid container>
         {cards.length > 0 ? (
-          <Grid className={classes.movementsInfo} item xs={12}>
-            <LinearProgress
-              color="secondary"
-              variant="determinate"
-              value={movementsBar}
-            />
-            {movements > 0 ? (
-              <Typography variant="h3">Movements left: {movements}</Typography>
-            ) : (
-              <Box className={classes.startGame}>
-                <Typography variant="h3">Out of movements</Typography>
-                {!wonGame && (
-                  <Button
-                    onClick={onStartGameClick}
-                    variant="contained"
-                    color="secondary"
-                  >
-                    Play again
-                  </Button>
-                )}
-              </Box>
-            )}
+          <Grid item xs={12}>
+            <div
+              className={classes.movementsInfo}
+              style={{ width: movementsBar + "%" }}
+            >
+              {movements > 0 ? (
+                <Typography variant="h3">
+                  Movements left: {movements}
+                </Typography>
+              ) : (
+                <Box className={classes.startGame}>
+                  <Typography variant="h3">Out of movements</Typography>
+                  {!wonGame && (
+                    <Button
+                      onClick={onStartGameClick}
+                      variant="contained"
+                      color="secondary"
+                    >
+                      Play again
+                    </Button>
+                  )}
+                </Box>
+              )}
+            </div>
           </Grid>
         ) : (
-          <Grid className={classes.startGame} item xs={12}>
-            <Typography variant="h1" color="textSecondary">
-              React memocard game
-            </Typography>
-            <Button
-              onClick={onStartGameClick}
-              variant="contained"
-              color="secondary"
-            >
-              I want to play
-            </Button>
-          </Grid>
+          <Welcome startGame={onStartGameClick} />
         )}
 
         {wonGame && (

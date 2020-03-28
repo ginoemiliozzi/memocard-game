@@ -1,130 +1,140 @@
-export const totalMovements = 60;
+import Tapir from "../cards/CigCardTapir.svg"
+import WildCat from "../cards/CigCardAmericanWildcat.svg"
+import LightBrahma from "../cards/CigCardAmericanLightBrahma.svg"
+import Giraffe from "../cards/CigCardGiraffe.svg"
+import Zebu from "../cards/CigCardZebu.svg"
+import Zebra from "../cards/CigCardZebra.svg"
+import Deer from "../cards/CigCardVirginianDeer.svg"
+import Yak from "../cards/CigCardYak.svg"
+import Chickadee from "../cards/CigCardChickadee.svg"
+
+export const totalMovements = 40;
 export const availableCards = [
   {
     id: "1",
     type: "1",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/1/200/200"
+    imageUrl: Tapir
   },
   {
     id: "2",
     type: "1",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/1/200/200"
+    imageUrl: Tapir
   },
   {
     id: "3",
     type: "2",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/2/200/200"
+    imageUrl: WildCat
   },
   {
     id: "4",
     type: "2",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/2/200/200"
+    imageUrl: WildCat
   },
   {
     id: "5",
     type: "3",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/3/200/200"
+    imageUrl: LightBrahma
   },
   {
     id: "6",
     type: "3",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/3/200/200"
+    imageUrl: LightBrahma
   },
   {
     id: "7",
     type: "4",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/4/200/200"
+    imageUrl: Giraffe
   },
   {
     id: "8",
     type: "4",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/4/200/200"
+    imageUrl: Giraffe
   },
   {
     id: "9",
     type: "5",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/5/200/200"
+    imageUrl: Zebu
   },
   {
     id: "10",
     type: "5",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/5/200/200"
+    imageUrl: Zebu
   },
   {
     id: "11",
     type: "6",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/6/200/200"
+    imageUrl: Zebra
   },
   {
     id: "12",
     type: "6",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/6/200/200"
+    imageUrl: Zebra
   },
   {
     id: "13",
     type: "7",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/7/200/200"
+    imageUrl: Deer
   },
   {
     id: "14",
     type: "7",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/7/200/200"
+    imageUrl: Deer
   },
   {
     id: "15",
     type: "8",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/8/200/200"
+    imageUrl: Yak
   },
   {
     id: "16",
     type: "8",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/8/200/200"
+    imageUrl: Yak
   },
   {
     id: "17",
     type: "9",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/9/200/200"
+    imageUrl: Chickadee
   },
   {
     id: "18",
     type: "9",
     selected: false,
     discovered: false,
-    imageUrl: "https://picsum.photos/id/9/200/200"
+    imageUrl: Chickadee
   }
 ];
 

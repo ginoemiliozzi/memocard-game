@@ -3,6 +3,7 @@ import { MemoryCard } from "../../state/actions";
 import { Card } from "@material-ui/core";
 import { useSpring, animated as a } from "react-spring";
 import { makeStyles } from "@material-ui/styles";
+import Assagai from "../../cards/CigCardAssagai.svg"
 
 const useStyles = makeStyles({
   card: {
@@ -17,9 +18,7 @@ const useStyles = makeStyles({
   },
   front: {
     border: "1px solid black",
-    backgroundImage: `url(
-      "https://static.vecteezy.com/system/resources/thumbnails/000/554/486/small/question_mark_001.jpg"
-    )`
+    backgroundImage: `url(${Assagai})`
   }
 });
 
@@ -53,6 +52,7 @@ function MemoCard({
         className={classes.card}
         style={{
           backgroundImage: `url(${imageUrl})`,
+          backgroundSize: "contain",
           opacity,
           transform: transform.interpolate(t => `${t} rotateX(180deg)`)
         }}
