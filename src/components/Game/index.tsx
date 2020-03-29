@@ -64,7 +64,7 @@ export default function Game() {
             />
             <Box className={classes.header}>
               <Typography className={classes.statusMessage} variant="h4">{gameStatusMessage}</Typography>
-              {movements <= 0 && (
+              {(movements <= 0 || wonGame) && (
                 <Button
                   onClick={onStartGameClick}
                   variant="contained"

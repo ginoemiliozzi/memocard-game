@@ -25,13 +25,7 @@ interface WelcomeProps {
 
 function Welcome({ startGame }: WelcomeProps) {
   const classes = useStyles();
-  const [inView, setin] = useState(false)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setin(true)
-    }, 1000);
-  }, [])
+  const [loading, setLoading] = useState(true)
 
   return (
     <Grid
@@ -47,8 +41,8 @@ function Welcome({ startGame }: WelcomeProps) {
       <Typography className={classes.title} variant="subtitle2">
         made with react
       </Typography>
-      <Grow in={inView}>
-        <img className={classes.cardImage} src={Assagai} alt="memogame" />
+      <Grow in={!loading}>
+        <img onLoad={() => setLoading(false)} className={classes.cardImage} src={Assagai} alt="memogame" />
       </Grow>
       <Button onClick={startGame} variant="contained" color="secondary">
         Let's play
