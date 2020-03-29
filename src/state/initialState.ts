@@ -8,7 +8,7 @@ import Deer from "../cards/CigCardVirginianDeer.svg"
 import Yak from "../cards/CigCardYak.svg"
 import Chickadee from "../cards/CigCardChickadee.svg"
 
-export const totalMovements = 40;
+export const totalMovements = 45;
 export const availableCards = [
   {
     id: "1",

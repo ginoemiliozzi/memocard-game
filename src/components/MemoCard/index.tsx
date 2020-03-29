@@ -48,7 +48,7 @@ function MemoCard({
           transform
         }}
       />
-      <a.div
+      {revealed && <a.div
         className={classes.card}
         style={{
           backgroundImage: `url(${imageUrl})`,
@@ -56,7 +56,7 @@ function MemoCard({
           opacity,
           transform: transform.interpolate(t => `${t} rotateX(180deg)`)
         }}
-      />
+      />}
     </Card>
   );
 }

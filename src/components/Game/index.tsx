@@ -1,13 +1,7 @@
 import React, { useReducer } from "react";
 import { reducer } from "../../state/reducer";
 import { ActionsTypes, MemoryCard } from "../../state/actions";
-import {
-  Container,
-  Grid,
-  Typography,
-  Button,
-  Box,
-} from "@material-ui/core";
+import { Container, Grid, Typography, Button, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import initialState from "../../state/initialState";
 import Board from "../Board";
@@ -18,7 +12,7 @@ const useStyles = makeStyles({
     padding: "0px 20px",
     marginTop: 20,
     marginBottom: 20,
-    backgroundColor: "lightcoral",
+    backgroundColor: "#68e85f",
     borderRadius: 5,
   },
   gameInfo: {
@@ -28,10 +22,13 @@ const useStyles = makeStyles({
     borderRadius: 5,
     backgroundColor: "#B7EBD9",
   },
-  startGame: {
+  header: {
     textAlign: "center",
-    padding: 20,
+    height: 150,
   },
+  statusMessage: {
+    marginBottom: 5
+  }
 });
 
 export default function Game() {
@@ -40,12 +37,22 @@ export default function Game() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { totalMovements, movements, cards, wonGame } = state;
   const movementsBar = (100 / totalMovements) * movements;
+  const gameStatusMessage = wonGame
+    ? "You did it!"
+    : movements > 1
+    ? `You have ${movements} movements left`
+    : movements > 0 
+    ? `You have ${movements} movement left`
+    : "Try again, you can do it...";
+
   const onCardSelect = (card: MemoryCard) => {
     dispatch({ type: ActionsTypes.CARD_SELECTED, payload: card });
   };
+
   const onStartGameClick = () => {
     dispatch({ type: ActionsTypes.START_GAME });
   };
+
   return (
     <Container>
       <Grid container>
@@ -53,43 +60,23 @@ export default function Game() {
           <Grid item xs={12}>
             <div
               className={classes.movementsInfo}
-              style={{ width: movementsBar + "%" }}
-            >
-              {movements > 0 ? (
-                <Typography variant="h3">
-                  Movements left: {movements}
-                </Typography>
-              ) : (
-                <Box className={classes.startGame}>
-                  <Typography variant="h3">Out of movements</Typography>
-                  {!wonGame && (
-                    <Button
-                      onClick={onStartGameClick}
-                      variant="contained"
-                      color="secondary"
-                    >
-                      Play again
-                    </Button>
-                  )}
-                </Box>
+              style={{ height: 30, width: movementsBar + "%" }}
+            />
+            <Box className={classes.header}>
+              <Typography className={classes.statusMessage} variant="h4">{gameStatusMessage}</Typography>
+              {movements <= 0 && (
+                <Button
+                  onClick={onStartGameClick}
+                  variant="contained"
+                  color="secondary"
+                >
+                  Play again
+                </Button>
               )}
-            </div>
+            </Box>
           </Grid>
         ) : (
           <Welcome startGame={onStartGameClick} />
-        )}
-
-        {wonGame && (
-          <Grid item className={classes.gameInfo} xs={12}>
-            <Typography variant="h3">You win!</Typography>
-            <Button
-              onClick={onStartGameClick}
-              variant="contained"
-              color="secondary"
-            >
-              Play again
-            </Button>
-          </Grid>
         )}
         <Grid item xs={12}>
           <Board cards={cards} onCardSelect={onCardSelect} />
